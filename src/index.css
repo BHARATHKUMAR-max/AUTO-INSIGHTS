@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-app-bg: var(--bg-color);
+  --color-app-card: var(--card-bg);
+  --color-app-text: var(--text-color);
+  --color-app-secondary: var(--secondary-text);
+  --color-app-border: var(--border-color);
+  --color-app-primary: var(--primary-color);
+  --color-app-input: var(--input-bg);
+  --color-app-input-text: var(--input-text);
+}
+
+:root {
+  --bg-color: #f5f6f8;
+  --card-bg: #ffffff;
+  --text-color: #1f2937;
+  --secondary-text: #6b7280;
+  --primary-color: #10b981;
+  --border-color: #e5e7eb;
+  --input-bg: #ffffff;
+  --input-text: #1f2937;
+}
+
+[data-theme='dark'] {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: #f1f5f9;
+  --secondary-text: #94a3b8;
+  --primary-color: #10b981;
+  --border-color: #334155;
+  --input-bg: #0f172a;
+  --input-text: #f1f5f9;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .animate-progress {
+    animation: progress 2s ease-in-out infinite;
+  }
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
